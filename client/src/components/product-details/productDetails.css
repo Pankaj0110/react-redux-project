@@ -1,0 +1,12 @@
+.description{
+    padding-top:2%;
+    font-size:2rem;
+}
+
+.details ul li{
+    list-style: none;
+}
+
+.button-position{
+    margin:5px 5px;
+}
