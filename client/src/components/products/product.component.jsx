@@ -2,48 +2,45 @@
 
 import React from 'react';
 import './products.css';
-import {Switch, Route, Link, withRouter } from 'react-router-dom';
+import { Switch, Route, Link, withRouter } from 'react-router-dom';
 
 
 class Products extends React.Component {
-    constructor(props){
+    constructor(props) {
         super(props);
     }
- /* 
-                        */
-    
+    /* 
+                           */
 
-    render(){
-        if(this.props && this.props.products && this.props.products.products){
+
+    render() {
+        if (this.props && this.props.products && this.props.products.products) {
             return (
-                 <div className="container-fluid">
+                <div className="container-fluid">
                     <h4 className="title-text">Today's Deal Products</h4>
-                   <div className="row">                    
-                        {this.props.products.products.map(prod=>
-                          <div className
-                          ='col-md-2 col-sm-2' key={prod._id}>
-                          <Link to={`/details/${prod._id}`}>
-                            <div className="product-img col-centered">
-                                    <img src={'./img/'+prod.image} className="img-responsive img-thumbnail" style={{height:200 + 'px', width:'auto'}}/>
-                                    <div className="label">{prod.name}</div>
-                                    <div>Price :  {prod.price}</div>
-                                    <div>Offer: NA</div>
+                    <div className="row">
+                        {this.props.products.products.map(prod =>
+                            <div className
+                                ='col-md-2 col-sm-2' key={prod._id}>
+                                <Link to={`/details/${prod._id}`}>
+                                    <div className="product-img col-centered">
+                                        <img src={'./img/' + prod.image} className="img-responsive img-thumbnail" style={{ height: 200 + 'px', width: 'auto' }} />
+                                        <div className="label">{prod.name}</div>
+                                        <div>Price :  {prod.price}</div>
+                                        <div>Offer: NA</div>
+                                    </div>
+                                </Link>
                             </div>
-                            </Link>
-                          </div>
-                        )}                
+                        )}
                     </div>
-                </div>                
+                </div>
             )
-        }else {
+        } else {
             return (
                 <div > No Products Found </div>
             )
         }
-        
-    }
-    componentDidUpdate(){
-        console.log('update -> ', this.props)
+
     }
 
 }

@@ -49,3 +49,16 @@ export function getProductDetails(data){
         .catch(err=> console.log('err', err));
     }
 }
+
+export function addToCart(data){
+    return function(dispatch){
+       // Axios.post('http://localhost:4000/login', data)
+        //.then((response)=>{
+            dispatch({
+                type:'ADD_TO_CART', 
+                payload:data
+            })
+       // })
+       // .catch(err=> console.log('err', err))
+    }
+}

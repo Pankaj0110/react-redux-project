@@ -45,6 +45,9 @@ export class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <span style={{float:'right', marginRight:'20px',fontSize:'16px',color:'red'}}>Welcome {this.props.users.user?this.props.users.user.user:'Guest'}</span>
        {/*    <h1 className="App-title">Welcome to React</h1> */}
+      <div style={{fontSize:2 + 'rem', marginTop:30 + 'px', color:'white'}} className="pull-right">
+      <i className="glyphicon glyphicon-shopping-cart"></i> <div className="label">{this.props.cart.cart?this.props.cart.cart.length:0}</div>
+      </div>
           <nav>
             <ul>
               <li><Link to='/'>Home</Link></li>
@@ -58,7 +61,7 @@ export class App extends Component {
         <Route exact path='/'  render={(props) => (<Products products={this.props.products.products} {...props}/>)}/>
         <Route path='/signup'render={(props) => (<Signup dispatcher={this.props.actions} {...props}/>)}/>
         <Route path='/login' render={(props) => (<LoginComponent dispatcher={this.props.actions} {...props}/>)}/>
-        <Route path='/details/:id' render={(props) =>(<ProductDetailComponent dispatcher={this.props.actions} products={this.props.products.products} {...props}/>)}/>
+        <Route path='/details/:id' render={(props) =>(<ProductDetailComponent dispatcher={this.props.actions} products={this.props.products.products} productDetails={this.props.products.productDetails} {...props}/>)}/>
       </Switch>
       </div>   
     );
@@ -69,23 +72,12 @@ export class App extends Component {
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
 function mapStatetoProps(store){
   console.log("product-store :: ",store);
   return {
     products: store.products,
-    users:store.users
+    users:store.users,
+    cart:store.cart
   }
 }
  function mapDispatchToProps(dispatch){
