@@ -37,7 +37,7 @@ class Products extends React.Component {
             )
         } else {
             return (
-                <div > No Products Found </div>
+                <div > No Products Found </div> 
             )
         }
 
